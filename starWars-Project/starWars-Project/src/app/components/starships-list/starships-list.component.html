@@ -1,5 +1,5 @@
-
-<ul class="list-group" *ngFor="let starship of starships">
-  <li class="list-group-item" >{{starship.name}}</li>
-  <li class="list-group-item">{{starship.model}}</li>
-</ul>
+<div class="starships-container">
+  <ul class="list-group m-3" *ngFor="let starship of starships">
+    <li class="list-group-item">Nom: {{starship.name}}<br>Model: {{starship.model}}</li>
+  </ul>
+</div>
