@@ -1,1 +1,5 @@
-<p>starships-list works!</p>
+
+<ul class="list-group" *ngFor="let starship of starships">
+  <li class="list-group-item" >{{starship.name}}</li>
+  <li class="list-group-item">{{starship.model}}</li>
+</ul>
