@@ -1,5 +1,5 @@
 import { StarshipsListComponent } from './../starships-list/starships-list.component';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './starship-detail.component.html',
-  styleUrl: './starship-detail.component.scss'
+  styleUrls: ['./starship-detail.component.scss']
 })
 
 

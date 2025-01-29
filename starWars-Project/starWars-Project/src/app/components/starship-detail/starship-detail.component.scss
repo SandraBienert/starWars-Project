@@ -1,6 +1,13 @@
+div.background-container {
+  background-image: url('/starWars-Project/public/assets/img/star-wars-spaceship.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-.datos-container{
+ datos-container{
   margin-top: 20px;
+  padding-top: 30px;
 }
 
 #datos,
