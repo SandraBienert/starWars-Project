@@ -9,6 +9,7 @@ import { map, Observable } from 'rxjs';
 export class ApiService {
 
 private apiUrl = 'https://swapi.dev/api/starships';
+private imageBase='https://starwars-visual-guide.com/assets/img/';
 
   constructor(private http: HttpClient) {}
 
@@ -30,5 +31,9 @@ getStarshipById(id: string): Observable<any> {
 extractIdFromUrl(url: string): string {
   const segments = url.split('/').filter(Boolean);
   return segments[segments.length - 1];
+}
+
+getStarshipImageUrl(id: string): string {
+  return `${this.imageBase}starships/${id}.jpg`;
 }
 }
