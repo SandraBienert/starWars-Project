@@ -14,5 +14,4 @@ export interface Starship {
   edited: string;
   url: string;
 
-
 }

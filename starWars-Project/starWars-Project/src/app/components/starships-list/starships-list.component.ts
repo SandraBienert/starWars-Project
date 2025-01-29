@@ -16,6 +16,7 @@ export class StarshipsListComponent implements OnInit {
   starships: any[] = [];
   loading = false;
   nextUrl: string | null = null;
+  currentPage: any;
 
   constructor(private apiService : ApiService){}
 
@@ -32,5 +33,10 @@ export class StarshipsListComponent implements OnInit {
       this.nextUrl = data.next;
       this.loading = false;
     });
+  }
+
+  viewMore(): void {
+    this.currentPage++;
+    this.loadStarships();
   }
 }
