@@ -1,28 +1,41 @@
-import { Inject, Injectable } from '@angular/core';
-import { Auth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
-import { User } from 'firebase/auth';
-import { BehaviorSubject } from 'rxjs';
-
-// import { Validations } from '../auth/validations/validations'; // Ensure the module exists at the specified path or update the path accordingly
-// Ensure the module exists at the specified path or update the path accordingly
+import { User } from './../interfaces/user';
+import { Injectable } from '@angular/core';
+import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
-  private currentUserSubject = new BehaviorSubject<User | null>(null);
-  currentUser$ = this.currentUserSubject.asObservable();
-
-  constructor(
-    @Inject(Auth) private auth: Auth,
-    private router: Router
-  ) {
-    this.auth.onAuthStateChanged((user) => {
-      this.currentUserSubject.next(user);
-    });
-  }
 
 
+constructor() { }
+
+getAuth(): Auth {
+  return getAuth();
+}
+
+register(user: User){
+  return createUserWithEmailAndPassword(getAuth(), user.email, user.password);
+}
+
+logIn(user:User){
+  return signInWithEmailAndPassword(getAuth(), user.email, user.password);
+}
+
+logInGoogle(user:User){
+  return signInWithPopup(getAuth(), new GoogleAuthProvider);
+}
+
+logOut(){
+  return signOut(getAuth());
+}
+
+isAuthenticated(): boolean {
+  const user = getAuth().currentUser;
+  return user !== null;
+}
 }

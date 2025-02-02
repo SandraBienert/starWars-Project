@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,4 +11,13 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  constructor(@Inject(AuthService) private authService: AuthService, @Inject(Router) private router: Router) {}
+
+  logOut(){
+    this.authService.logOut()
+    .then(()=>{
+      this.router.navigate(['/login'])
+    })
+    .catch(error => console.log(error));
+  }
 }
