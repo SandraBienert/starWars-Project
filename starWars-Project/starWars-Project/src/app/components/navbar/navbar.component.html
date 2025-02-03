@@ -19,8 +19,8 @@
         class="img-fluid" aria-hidden="true"/>
     </div>
     <div class="d-flex">
-      <a href="/auth/login/login" class="text-white p-3">LOGIN</a> <!--VOY X AQUi FalTAN RUTAS-->
-      <p class="text-white p-3">REGISTER</p>
+      <a [routerLink]="['/login']" class="text-white p-3">LOGIN</a>
+      <a [routerLink]="['/register']" class="text-white p-3">REGISTER</a>
     </div>
   </div>
   <button (click)="logOut()">Log Out</button>

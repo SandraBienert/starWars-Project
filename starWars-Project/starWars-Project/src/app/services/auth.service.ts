@@ -3,8 +3,7 @@ import { Injectable } from '@angular/core';
 import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 import { getAuth } from 'firebase/auth';
-
-
+import { NgZone } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,30 +11,34 @@ import { getAuth } from 'firebase/auth';
 export class AuthService {
 
 
-constructor() { }
+constructor(private zone: NgZone) { }
 
 getAuth(): Auth {
   return getAuth();
 }
 
 register(user: User){
-  return createUserWithEmailAndPassword(getAuth(), user.email, user.password);
+  return this.zone.run(() =>
+    createUserWithEmailAndPassword(this.getAuth(), user.email, user.password));
 }
 
 logIn(user:User){
-  return signInWithEmailAndPassword(getAuth(), user.email, user.password);
+  return this.zone.run(() => signInWithEmailAndPassword(this.getAuth(), user.email, user.password));
 }
 
-logInGoogle(user:User){
-  return signInWithPopup(getAuth(), new GoogleAuthProvider);
-}
+logInGoogle(){
+    return this.zone.run(() => signInWithPopup(this.getAuth(), new GoogleAuthProvider()));
+  }
+
 
 logOut(){
-  return signOut(getAuth());
+  return this.zone.run(() => signOut(this.getAuth()));
 }
 
 isAuthenticated(): boolean {
-  const user = getAuth().currentUser;
+  const user = this.getAuth().currentUser;
   return user !== null;
 }
+
 }
+

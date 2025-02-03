@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { StarshipsListComponent } from "../starships-list/starships-list.component";
+import { NavbarComponent } from "../navbar/navbar.component";
+
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [StarshipsListComponent],
+  imports: [StarshipsListComponent, NavbarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

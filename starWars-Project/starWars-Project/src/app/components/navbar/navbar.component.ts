@@ -1,11 +1,11 @@
 import { Component, Inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
@@ -16,7 +16,7 @@ export class NavbarComponent {
   logOut(){
     this.authService.logOut()
     .then(()=>{
-      this.router.navigate(['/login'])
+      this.router.navigate(['/welcome'])
     })
     .catch(error => console.log(error));
   }
