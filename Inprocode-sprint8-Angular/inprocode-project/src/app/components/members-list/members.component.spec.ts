@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MenuSuperiorComponent } from './menu-superior.component';
+import { MembersComponent } from './members.component';
 
-describe('MenuSuperiorComponent', () => {
-  let component: MenuSuperiorComponent;
-  let fixture: ComponentFixture<MenuSuperiorComponent>;
+describe('MembersComponent', () => {
+  let component: MembersComponent;
+  let fixture: ComponentFixture<MembersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MenuSuperiorComponent]
+      imports: [MembersComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MenuSuperiorComponent);
+    fixture = TestBed.createComponent(MembersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
