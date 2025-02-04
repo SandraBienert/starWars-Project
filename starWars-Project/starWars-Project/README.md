@@ -1,8 +1,27 @@
 # StarWarsProject
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli)
 
-## Development server
+Tecnologies Used
+"node": "^18.19.1 || ^20.11.1 || >=22.0.0",
+"npm": "^6.11.0 || ^7.5.6 || >=8.0.0",
+"bootstrap" "5.0",
+Angukar material,
+firebase: "19.0.0",
+
+## 💡 Functionalities
+
+- [x] Reusable components
+- [x] Pages
+- [x] Service selection with options
+- [x] Anual discount toggle
+- [x] URL parameters
+- [x] Client info form
+- [x] Requested estimation/Budget
+- [x] Routes and pages
+- [ ] Unit testing
+- [ ] User authentication
+- [ ] Database integration
 
 To start a local development server, run:
 
