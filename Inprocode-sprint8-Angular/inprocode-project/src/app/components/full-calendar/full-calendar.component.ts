@@ -21,8 +21,6 @@ export class FullCalendarComponent {
     initialView: 'dayGridMonth', // Vista inicial: mes
     plugins: [dayGridPlugin, interactionPlugin, listPlugin], // Usa el plugin de vista de cuadrícula por días
     events: [
-      { title: 'Evento 1', date: '2023-10-01' },
-      { title: 'Evento 2', date: '2023-10-15' }
     ],
     dateClick: (arg) => { // Maneja clics en fechas
       alert('Fecha clickeada: ' + arg.dateStr);
