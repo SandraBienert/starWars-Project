@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from "./components/home/home.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
+
 
 
 @Component({

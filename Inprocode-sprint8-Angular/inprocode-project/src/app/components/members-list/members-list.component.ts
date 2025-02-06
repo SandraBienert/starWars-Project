@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Imembers } from '../../interfaces/imembers';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
   selector: 'app-members-list',
+  standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './members-list.component.html',
   styleUrls: ['./members-list.component.css']
@@ -31,7 +33,7 @@ export class MembersListComponent implements OnInit {
 
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
   }
 
 

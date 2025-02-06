@@ -7,6 +7,7 @@ import listPlugin from '@fullcalendar/list';
 import dayGridPlugin from '@fullcalendar/daygrid';
 
 
+
 @Component({
   selector: 'app-full-calendar',
   standalone: true,
