@@ -1,0 +1,33 @@
+<div class="container mt-3 pt-4">
+  <div class="title pt-2">
+    <h4 class="h4">Listado de miembros de la C&A</h4>
+    <button type="button" class="btn btn-info" routerLink="/crud">Agregar Membre</button>
+  </div>
+
+<table class="table table-hover mt-3">
+  <thead>
+    <tr class="table-dark">
+      <th class="ps-4"scope="col">Id:</th>
+      <th class="ps-4" scope="col">Nom:</th>
+      <th class="ps-4" scope="col">Cognom:</th>
+      <th class="ps-4" scope="col">Rol C&A:</th>
+      <th class="ps-4" scope="col">Nómina:</th>
+      <th class="ps-4" scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let member of membersList" class="table-active">
+      <td class="ps-4">{{member.id}}</td>
+      <td class="ps-4">{{member.name}}</td>
+      <td class="ps-4">{{member.surname}}</td>
+      <td class="ps-4">{{member.rol}}</td>
+      <td class="ps-4">{{member.payroll}}</td>
+      <td class="ps-4">
+        <button type="button" class="btn btn-secondary btn-sm ms-3">Editar</button>
+        <button type="button" class="btn btn-danger btn-sm ms-3">Eliminar</button>
+      </td>
+    </tr>
+    <tr>
+  </tbody>
+</table>
+</div>

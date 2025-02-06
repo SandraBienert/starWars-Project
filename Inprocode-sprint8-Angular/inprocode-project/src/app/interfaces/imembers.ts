@@ -1,6 +1,10 @@
+
 export interface Imembers {
+
   id: number;
-  nom: string;
-  cognom: string;
+  name: string;
+  surname: string;
   rol: string;
+  payroll: number;
+
 }
