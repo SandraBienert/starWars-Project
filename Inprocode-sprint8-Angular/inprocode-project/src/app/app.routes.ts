@@ -8,13 +8,14 @@ import { MembersListComponent } from './components/members-list/members-list.com
 import { CrudMembersComponent } from './components/crud-members/crud-members.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Ruta por defecto
+
+  { path: '', component: HomeComponent}, // Ruta por defecto
   { path: 'home', component: HomeComponent },
   { path: 'full-calendar', component: FullCalendarComponent },
   { path: 'mapa', component: MapaComponent },
   { path: 'grafics', component: GraficsComponent },
   { path: 'membres', component: MembersListComponent},
   { path: 'crud', component: CrudMembersComponent},
-  { path: '**', redirectTo: '/home' } // Ruta comodín para páginas no encontradas
-
+  { path: 'edit/:id', component: CrudMembersComponent},
+  { path: '**', redirectTo: '/home', pathMatch: 'full'  } // Ruta comodín para páginas no encontradas
 ];

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-crud-members',
-  imports: [],
+  standalone: true,
+  imports: [RouterLink],
   templateUrl: './crud-members.component.html',
   styleUrl: './crud-members.component.css'
 })
