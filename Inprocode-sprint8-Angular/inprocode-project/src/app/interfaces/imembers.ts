@@ -1,7 +1,7 @@
 
 export interface Imembers {
 
-  id: number;
+  id: any|string;
   name: string;
   surname: string;
   rol: string;

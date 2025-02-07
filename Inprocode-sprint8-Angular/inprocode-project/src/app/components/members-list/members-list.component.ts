@@ -15,19 +15,19 @@ export class MembersListComponent implements OnInit {
 
   membersList: Imembers[] = [
     {
-      id: 1,
+      id: undefined,
       name: "Pepa",
       surname: "Flores",
       rol: "Directora",
       payroll: 3200,
-  },
+
+    },
   {
-    id: 2,
+    id: undefined,
     name: "Roberto",
     surname: "García",
     rol: "Actor",
     payroll :2500,
-
 }
   ]
 

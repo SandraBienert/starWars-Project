@@ -5,19 +5,30 @@
   <div class="card text-white bg-info mb-3" style="max-width: 30rem;">
     <div class="card-header fs-3 text-center">Agregar Membre</div>
     <div class="card-body">
-      <form>
-      <input type="text" class="form-control fs-5" placeholder="Escriu el nom"/>
-      <input type="text" class="form-control mt-2 fs-5" placeholder="Escriu el cognom"/>
-      <input type="text" class="form-control mt-2 fs-5" placeholder="Escriu el rol que exerceix a la companyia"/>
-      <input type="text" class="form-control mt-2 fs-5" placeholder="Escriu el sou mensual"/>
+      <form [formGroup]="form" (ngSubmit)="addMember()">
+      <input formControlName="name" type="text" class="form-control fs-5" placeholder="Escriu el nom"/>
+      <span *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched" class="text-danger">
+        ¡El camp nom és <strong>necessari</strong>!"
+      </span>
+      <input formControlName="surname" type="text" class="form-control mt-2 fs-5" placeholder="Escriu el cognom"/>
+      <span *ngIf="form.get('surname')?.hasError('required') && form.get('surname')?.touched" class="text-danger">
+        ¡El camp cognom és <strong>necessari</strong>!"
+      </span>
+      <input formControlName="rol" type="text" class="form-control mt-2 fs-5" placeholder="Escriu el rol que exerceix a la companyia"/>
+      <span *ngIf="form.get('rol')?.hasError('required') && form.get('rol')?.touched" class="text-danger">
+        ¡El camp rol és <strong>necessari</strong>!"
+      </span>
+      <input formControlName="payroll" type="number" class="form-control mt-2 fs-5" placeholder="Escriu el sou mensual"/>
+      <span *ngIf="form.get('payroll')?.hasError('required') && form.get('payroll')?.touched" class="text-danger">
+        ¡El camp nómina és <strong>necessari</strong>!"
+      </span>
       <div class="row mt-3 text-center">
         <div class="col-lg-6">
           <button [routerLink]="['/']" type="button" class="btn btn-light fs-6">Tornar</button>
         </div>
         <div class="col-lg-6">
-          <button type="button" class="btn btn-primary fs-6">Acceptar</button>
+          <button [disabled]="form.invalid" type="submit" class="btn btn-primary fs-6">Acceptar</button>
         </div>
-
     </div>
     </form>
     </div>
