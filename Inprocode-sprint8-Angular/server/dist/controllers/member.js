@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.postMember = exports.deleteMember = exports.getMember = exports.getMembers = void 0;
+exports.updateMember = exports.postMember = exports.deleteMember = exports.getMember = exports.getMembers = void 0;
 const getMembers = (req, res) => {
     res.json({
         msg: 'GET Members, Llista de membres'
@@ -25,10 +25,19 @@ const deleteMember = (req, res) => {
 exports.deleteMember = deleteMember;
 const postMember = (req, res) => {
     const { body } = req;
-    console.log(body);
     res.json({
         msg: 'POST Member',
         body
     });
 };
 exports.postMember = postMember;
+const updateMember = (req, res) => {
+    const { body } = req;
+    const { id } = req.params;
+    res.json({
+        msg: 'UPDATE Member',
+        id,
+        body
+    });
+};
+exports.updateMember = updateMember;

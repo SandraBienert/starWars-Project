@@ -8,4 +8,5 @@ router.get('/', member_1.getMembers);
 router.get('/:id', member_1.getMember);
 router.delete('/:id', member_1.deleteMember);
 router.post('/', member_1.postMember);
+router.put('/:id', member_1.updateMember);
 exports.default = router;

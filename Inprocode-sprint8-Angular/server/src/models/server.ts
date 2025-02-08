@@ -1,5 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import routesMember from '../routes/member';
+import db from '../db/connection';
 
 class Server {
     private app : Application;
@@ -11,6 +12,7 @@ class Server {
         this.midlewares();
         this.routes(); //inicialització dels métodes de rutes
         this.listen();
+        this.dbConnect();
     }
 
     listen() {  
@@ -31,6 +33,16 @@ class Server {
     midlewares() {
         this.app.use(express.json());//parseamos el body a json
     }
+
+   async dbConnect(){
+     
+    try{
+    await db.authenticate();
+      console.log('Database connected');
+    } catch (error) {
+      console.log('Error connecting to the database: ', error);
+    }
+}
 }
 
 export default Server;

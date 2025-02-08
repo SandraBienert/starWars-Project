@@ -1,7 +1,5 @@
 import { Router } from 'express';
-import { getMembers, getMember, deleteMember, postMember } from '../controllers/member';
-
-
+import { getMembers, getMember, deleteMember, postMember, updateMember } from '../controllers/member';
 
 const router = Router();
 
@@ -10,6 +8,7 @@ router.get('/', getMembers);
 router.get('/:id', getMember);
 router.delete('/:id', deleteMember);
 router.post('/', postMember);
+router.put('/:id', updateMember);
 
 
 export default router;
