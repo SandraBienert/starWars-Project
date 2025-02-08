@@ -32,13 +32,14 @@ export class CrudMembersComponent implements OnInit {
   addMember() {
 
   const member : Imembers = {
+    id: undefined,
     name: this.form.get('name')?.value,
     surname: this.form.get('surname')?.value,
     rol: this.form.get('rol')?.value,
     payroll: this.form.get('payroll')?.value,
-    id: undefined,
+
     //console.log(this.form.value)
-  //console.log(this.form.get('name')?.value);
+
   }
   }
 }
