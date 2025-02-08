@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
+import Member from '../models/member';
 
 
-export const getMembers = (req: Request, res: Response) => {
-    res.json({
-        msg: 'GET Members, Llista de membres'
-    });
+export const getMembers = async (req: Request, res: Response) => {
+   const listMembers = await Member.findAll();
+    res.json(listMembers);
 }
 
 export const getMember = (req: Request, res: Response) => {
