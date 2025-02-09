@@ -3,6 +3,8 @@ import { Imembers } from '../../interfaces/imembers';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { NavbarComponent } from "../navbar/navbar.component";
+import { MembersService } from '../../services/members.service';
+import { getMembers } from '../../../../../server/src/controllers/member';
 
 @Component({
   selector: 'app-members-list',
@@ -28,13 +30,19 @@ export class MembersListComponent implements OnInit {
     surname: "García",
     rol: "Actor",
     payroll :2500,
-}
+},
   ]
 
 
-  ngOnInit(): void {
+  constructor(private _membersService: MembersService) { }
 
+  ngOnInit(): void {
+    this.getMembers();
   }
 
-
+  getMembers() {
+    this._membersService.getMembers().subscribe((data)=> {
+      console.log(data);
+    })
+  }
 }
