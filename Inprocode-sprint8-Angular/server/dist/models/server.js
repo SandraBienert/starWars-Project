@@ -13,12 +13,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
 const member_1 = __importDefault(require("../routes/member"));
 const connection_1 = __importDefault(require("../db/connection"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
-        this.port = process.env.PORT || '3002';
+        this.port = process.env.PORT || '3004';
         this.midlewares();
         this.routes(); //inicialització dels métodes de rutes
         this.listen();
@@ -39,6 +40,8 @@ class Server {
     }
     midlewares() {
         this.app.use(express_1.default.json()); //parseamos el body a json
+        //cors: para permitir peticiones de otros dominios
+        this.app.use((0, cors_1.default)());
     }
     dbConnect() {
         return __awaiter(this, void 0, void 0, function* () {

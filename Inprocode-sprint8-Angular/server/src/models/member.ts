@@ -1,4 +1,4 @@
-import { Model, DataTypes } from 'sequelize';
+import { DataTypes } from 'sequelize';
 import db from '../db/connection';
 
 const Member = db.define('Membres', { 

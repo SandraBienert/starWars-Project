@@ -1,4 +1,5 @@
 import express, { Application, Request, Response } from 'express';
+import cors from 'cors';
 import routesMember from '../routes/member';
 import db from '../db/connection';
 
@@ -8,7 +9,7 @@ class Server {
 
     constructor() {
         this.app = express();
-        this.port = process.env.PORT || '3002';
+        this.port = process.env.PORT || '3004';
         this.midlewares();
         this.routes(); //inicialització dels métodes de rutes
         this.listen();
@@ -32,6 +33,8 @@ class Server {
 
     midlewares() {
         this.app.use(express.json());//parseamos el body a json
+        //cors: para permitir peticiones de otros dominios
+        this.app.use(cors());
     }
 
    async dbConnect(){
