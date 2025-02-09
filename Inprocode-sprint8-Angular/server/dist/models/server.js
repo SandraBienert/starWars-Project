@@ -18,7 +18,7 @@ const connection_1 = __importDefault(require("../db/connection"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
-        this.port = process.env.PORT || '3001';
+        this.port = process.env.PORT || '3002';
         this.midlewares();
         this.routes(); //inicialització dels métodes de rutes
         this.listen();

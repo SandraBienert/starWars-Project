@@ -8,7 +8,7 @@ class Server {
 
     constructor() {
         this.app = express();
-        this.port = process.env.PORT || '3001';
+        this.port = process.env.PORT || '3002';
         this.midlewares();
         this.routes(); //inicialització dels métodes de rutes
         this.listen();

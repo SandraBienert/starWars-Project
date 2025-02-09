@@ -19,37 +19,78 @@ const getMembers = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     res.json(listMembers);
 });
 exports.getMembers = getMembers;
-const getMember = (req, res) => {
+const getMember = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    res.json({
-        msg: 'GET Member',
-        id //el mateix q id:id
-    });
-};
+    const member = yield member_1.default.findByPk(id);
+    if (member) {
+        res.json(member);
+    }
+    else {
+        res.status(404).json({
+            msg: `No existeix cap membre amb identificador: ${id}`,
+        });
+    }
+});
 exports.getMember = getMember;
-const deleteMember = (req, res) => {
+const deleteMember = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    res.json({
-        msg: 'DELETE Member',
-        id
-    });
-};
+    try {
+        const member = yield member_1.default.findByPk(id);
+        if (!member) {
+            return res.status(404).json({
+                msg: `No existeix cap membre amb identificador: ${id}`,
+            });
+        }
+        else {
+            yield member.destroy();
+            res.json({
+                msg: `El membre amb identificador: ${id} ha estat eliminat correctament`,
+            });
+        }
+    }
+    catch (error) {
+        next(error); // Manejo de errores
+    }
+});
 exports.deleteMember = deleteMember;
-const postMember = (req, res) => {
+const postMember = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
-    res.json({
-        msg: 'POST Member',
-        body
-    });
-};
+    try {
+        yield member_1.default.create(body);
+        res.json({
+            msg: 'Membre creat correctament',
+        });
+    }
+    catch (error) {
+        res.status(500).json({
+            msg: 'Error al crear el membre',
+            error,
+        });
+    }
+});
 exports.postMember = postMember;
-const updateMember = (req, res) => {
+const updateMember = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
     const { id } = req.params;
-    res.json({
-        msg: 'UPDATE Member',
-        id,
-        body
-    });
-};
+    try {
+        const member = yield member_1.default.findByPk(id);
+        if (member) {
+            yield member.update(body);
+            res.json({
+                msg: 'Membre actualitzat correctament',
+            });
+        }
+        else {
+            res.status(404).json({
+                msg: `No existeix cap membre amb identificador: ${id}`,
+            });
+        }
+    }
+    catch (error) {
+        res.status(500).json({
+            msg: 'Error al actualitzar el membre',
+            error,
+        });
+    }
+});
 exports.updateMember = updateMember;

@@ -6,4 +6,4 @@ const sequelize = new Sequelize('membres', 'root', '822025Clave%', {
   dialect: 'mysql',
 });
 
-export default sequelize
+export default sequelize;

@@ -1,7 +1,7 @@
 import { Model, DataTypes } from 'sequelize';
 import db from '../db/connection';
 
-const Member = db.define('Member', { 
+const Member = db.define('Membres', { 
   name: {
     type: DataTypes.STRING,
   },
@@ -15,6 +15,10 @@ const Member = db.define('Member', {
     type: DataTypes.NUMBER,
   },
 
-});
+}, {
+  createdAt: false,
+  updatedAt: false
+}
+);
 
 export default Member;
