@@ -1,16 +1,18 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NavbarComponent } from "./components/navbar/navbar.component";
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterModule, NavbarComponent, ReactiveFormsModule],
+  standalone: true,
+  imports: [RouterOutlet, NavbarComponent, CommonModule, ReactiveFormsModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 
 

@@ -17,9 +17,9 @@ export class MembersService {
   constructor(private http: HttpClient) {
     this.myAppUrl = environment.endpoint;
     this.myApiUrl = 'api/members/';
-   }
+  }
 
-    getMembers(): Observable<Imembers[]> {
+    getListMembers(): Observable<Imembers[]> {
       return this.http.get<Imembers[]>(`${this.myAppUrl}${this.myApiUrl}`);
 }
 }

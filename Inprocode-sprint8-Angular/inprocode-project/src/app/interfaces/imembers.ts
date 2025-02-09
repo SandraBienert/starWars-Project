@@ -1,7 +1,6 @@
 
 export interface Imembers {
-
-  id: any|string;
+  id: undefined;
   name: string;
   surname: string;
   rol: string;
