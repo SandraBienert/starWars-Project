@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MembersService } from '../../services/members.service';
 import { ProgressBarComponent } from '../../shared/progress-bar/progress-bar.component';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -16,11 +17,10 @@ import { ProgressBarComponent } from '../../shared/progress-bar/progress-bar.com
 })
 
 export class MembersListComponent implements OnInit {
-
   membersList: Imembers[] = [];
   loading: boolean = false;
 
-  constructor(private _membersService: MembersService) { }
+  constructor(private _membersService: MembersService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getListMembers();
@@ -39,4 +39,14 @@ export class MembersListComponent implements OnInit {
         }
     })
   }
-}
+
+  deleteMember(id: undefined) {
+    this.loading = true;
+    this._membersService.deleteMember(id).subscribe(() =>{
+      this.getListMembers();
+      this.toastr.warning('Membre esborrat amb èxit!', 'Membre esborrat');
+    })
+  }
+
+ }
+

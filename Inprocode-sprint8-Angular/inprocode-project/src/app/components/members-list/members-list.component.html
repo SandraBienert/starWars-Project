@@ -6,7 +6,7 @@
     <button type="button" class="btn btn-info" [routerLink]="['/crud-members']">Agregar Membre</button>
   </div>
 
-<table class="table table-hover mt-3">
+<table *ngIf="membersList.length > 0" class="table table-hover mt-3">
   <thead>
     <tr class="table-dark">
       <th class="h4 ps-4"scope="col">Id:</th>
@@ -25,10 +25,11 @@
       <td class="ps-4">{{member.payroll}}€</td>
       <td class="ps-4">
         <button [routerLink]="['/edit', member.id]" type="button" class="btn btn-secondary btn-sm ms-3">Editar</button>
-        <button type="button" class="btn btn-danger btn-sm ms-3">Eliminar</button>
+        <button (click)="deleteMember(member.id!)" type="button" class="btn btn-danger btn-sm ms-3">Eliminar</button>
       </td>
     </tr>
     <tr>
   </tbody>
 </table>
+<h5 *ngIf="membersList.length == 0">No n'hi ha cap membre per mostrar</h5>
 </div>

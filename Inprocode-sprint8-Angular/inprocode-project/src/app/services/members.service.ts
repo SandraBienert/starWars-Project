@@ -22,4 +22,20 @@ export class MembersService {
     getListMembers(): Observable<Imembers[]> {
       return this.http.get<Imembers[]>(`${this.myAppUrl}${this.myApiUrl}`);
 }
+
+  deleteMember(id: undefined): Observable<void> {
+    return this.http.delete<void>(`${this.myAppUrl}${this.myApiUrl}${id}`);
+}
+
+saveMember(member: Imembers): Observable<void> {
+  return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}`, member);
+}
+
+getMember(id: number): Observable<Imembers> {
+  return this.http.get<Imembers>(`${this.myAppUrl}${this.myApiUrl}${id}`);
+}
+
+updateMember(id: number, member: Imembers): Observable<void> {
+  return this.http.put<void>(`${this.myAppUrl}${this.myApiUrl}${id}`, member);
+}
 }

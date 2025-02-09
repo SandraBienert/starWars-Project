@@ -1,9 +1,9 @@
-
-<div class="container-fluid mt-5 pt-3">
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading" class="container-fluid mt-5 pt-3">
 <div class="row">
 <div class="col-lg-4 offset-lg-4">
   <div class="card text-white bg-info mb-3" style="max-width: 30rem;">
-    <div class="card-header fs-3 text-center">Agregar Membre</div>
+    <div class="card-header fs-3 text-center">{{operation}} Membre</div>
     <div class="card-body">
       <form [formGroup]="form" (ngSubmit)="addMember()">
       <input formControlName="name" type="text" class="form-control fs-5" placeholder="Escriu el nom"/>
