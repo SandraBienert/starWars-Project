@@ -1,4 +1,6 @@
 .map-container {
-  height: 500px; /* Defineix l'alçada del contenidor del mapa */
+  height: 100vh;
   width: 100%;
+  margin-left: 100px;
 }
+

@@ -23,7 +23,7 @@ export class MembersService {
       return this.http.get<Imembers[]>(`${this.myAppUrl}${this.myApiUrl}`);
 }
 
-  deleteMember(id: undefined): Observable<void> {
+  deleteMember(id: number): Observable<void> {
     return this.http.delete<void>(`${this.myAppUrl}${this.myApiUrl}${id}`);
 }
 

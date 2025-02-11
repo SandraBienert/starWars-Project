@@ -40,7 +40,7 @@ export class MembersListComponent implements OnInit {
     })
   }
 
-  deleteMember(id: undefined) {
+  deleteMember(id: number) {
     this.loading = true;
     this._membersService.deleteMember(id).subscribe(() =>{
       this.getListMembers();
