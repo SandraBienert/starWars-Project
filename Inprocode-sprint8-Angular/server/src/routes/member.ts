@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { getMembers, getMember, deleteMember, postMember, updateMember } from '../controllers/member';
 import { getMapTeatres } from '../controllers/mapTeatres';
+import { getAgenda } from '../controllers/calendari';
 
 const router = Router();
 
@@ -13,6 +14,7 @@ router.delete('/:id', (req, res, next) => {
   deleteMember(req, res, next).catch(next); // 👈 Manejo explícito de errores
 
 router.get('api/map', getMapTeatres);
+router.get('api/events', getAgenda);
 });
 
 export default router;  

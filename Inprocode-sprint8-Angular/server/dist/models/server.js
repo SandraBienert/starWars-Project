@@ -45,6 +45,16 @@ class Server {
             });
         });
         this.app.use('/api/map', member_1.default);
+        this.app.get('/api/events', (req, res) => {
+            connection_1.default.query('SELECT titol, lloc, data FROM calendari_debuts')
+                .then((results) => {
+                res.json(results); // ← Assegura't que results és un array
+            })
+                .catch((error) => {
+                res.status(500).json({ error: 'Error en la consulta' });
+            });
+        });
+        this.app.use('/api/events', member_1.default);
     }
     midlewares() {
         this.app.use(express_1.default.json()); //parseamos el body a json
@@ -56,13 +66,6 @@ class Server {
             try {
                 yield connection_1.default.authenticate();
                 console.log('Database connected');
-            }
-            catch (error) {
-                console.log('Error connecting to the database: ', error);
-            }
-            try {
-                yield connection_1.default.authenticate();
-                console.log('MapaDataBase connected');
             }
             catch (error) {
                 console.log('Error connecting to the database: ', error);
