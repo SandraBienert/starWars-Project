@@ -15,6 +15,14 @@
   },
   "dependencies": {
     "@angular/fire": "^19.0.0",
+    "@angular/forms": "^19.1.6",
+    "@angular/material": "^19.1.4",
+    "@angular/router": "^19.1.6",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "firebase": "^11.2.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.1.7"
   }
 }
