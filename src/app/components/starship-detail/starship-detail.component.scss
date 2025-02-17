@@ -1,8 +1,16 @@
-div.background-container {
-  background-image: url('/starWars-Project/public/assets/img/star-wars-spaceship.png');
+.background-container {
+  background-image: url('/assets/star-wars-spaceship.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  height: 100vh;
+}
+
+h2{
+  color: white;
+}
+h1{
+  color:yellow;
 }
 
  datos-container{
@@ -13,5 +21,5 @@ div.background-container {
 #datos,
 #datos2{
   border: 2px white solid;
-  background-color: rgba(90, 90, 90, 0.67);
+  background-color: white;
 }

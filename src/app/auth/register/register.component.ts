@@ -32,6 +32,13 @@ export class RegisterComponent {
        .catch(error => console.error('Registration error', error));
     }
   }
+  onClickGoogle(){
+    this.authService.logInGoogle()
+    .then(() =>{
+      this.router.navigate(['/home']);
+    })
+    .catch(error => console.error('Error during Google login:', error));
+  }
 }
 
 
